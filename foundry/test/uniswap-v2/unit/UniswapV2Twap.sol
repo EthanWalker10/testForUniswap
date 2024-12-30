@@ -12,7 +12,7 @@ error InsufficientTimeElapsed();
 error InvalidToken();
 
 contract UniswapV2Twap {
-    using FixedPoint for *;
+    using FixedPoint for *; // 定点运算
 
     // Minimum wait time in seconds before the function update can be called again
     // TWAP of time > MIN_WAIT
@@ -36,7 +36,6 @@ contract UniswapV2Twap {
     // TWAP of token1 in terms of token0
     FixedPoint.uq112x112 public price1Avg;
 
-    // Exercise 1
     constructor(address _pair) {
         // 1. Set pair contract from constructor input
         pair = IUniswapV2Pair(_pair);
@@ -51,7 +50,7 @@ contract UniswapV2Twap {
         (,, updatedAt) = pair.getReserves();
     }
 
-    // Exercise 2
+    // 计算当前时间的 cumulative
     // Calculates cumulative prices up to current timestamp
     function _getCurrentCumulativePrices()
         internal
@@ -89,7 +88,6 @@ contract UniswapV2Twap {
         }
     }
 
-    // Exercise 3
     // Updates cumulative prices
     function update() external {
         // 1. Cast block.timestamp to uint32
@@ -129,7 +127,6 @@ contract UniswapV2Twap {
         updatedAt = blockTimestamp;
     }
 
-    // Exercise 4
     // Returns the amount out corresponding to the amount in for a given token
     function consult(address tokenIn, uint256 amountIn)
         external

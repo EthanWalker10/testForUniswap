@@ -16,6 +16,7 @@ contract UniswapV2SwapAmountsTest is Test {
     IUniswapV2Router02 private constant router =
         IUniswapV2Router02(UNISWAP_V2_ROUTER_02);
 
+    // 根据给定的 WETH, 计算路径上每个 token 的输出
     function test_getAmountsOut() public {
         address[] memory path = new address[](3);
         path[0] = WETH;
@@ -30,6 +31,7 @@ contract UniswapV2SwapAmountsTest is Test {
         console2.log("MKR", amounts[2]);
     }
 
+    // 根据给定的 MKR, 计算路径上每个 token 需要的输入
     function test_getAmountsIn() public {
         address[] memory path = new address[](3);
         path[0] = WETH;

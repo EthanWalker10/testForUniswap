@@ -42,9 +42,6 @@ contract UniswapV2LiquidityTest is Test {
     }
 
     function test_addLiquidity() public {
-        // Exercise - Add liquidity to DAI / WETH pool
-        // Write your code here
-        // Don’t change any other code
         vm.prank(user);
         (uint256 amountA, uint256 amountB, uint256 liquidity) = router
             .addLiquidity({
@@ -78,9 +75,6 @@ contract UniswapV2LiquidityTest is Test {
             deadline: block.timestamp
         });
 
-        // Exercise - Remove liquidity from DAI / WETH pool
-        // Write your code here
-        // Don’t change any other code
         pair.approve(address(router), liquidity);
 
         (uint256 amountA, uint256 amountB) = router.removeLiquidity({

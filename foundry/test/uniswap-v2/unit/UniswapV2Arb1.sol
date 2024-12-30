@@ -62,7 +62,6 @@ contract UniswapV2Arb1 {
         amountOut = amounts[1];
     }
 
-    // Exercise 1
     // - Execute an arbitrage between router0 and router1
     // - Pull tokenIn from msg.sender
     // - Send amountIn + profit back to msg.sender
@@ -79,7 +78,6 @@ contract UniswapV2Arb1 {
         IERC20(params.tokenIn).transfer(msg.sender, amountOut);
     }
 
-    // Exercise 2
     // - Execute an arbitrage between router0 and router1 using flash swap
     // - Borrow tokenIn with flash swap from pair
     // - Send profit back to msg.sender
@@ -91,8 +89,6 @@ contract UniswapV2Arb1 {
     function flashSwap(address pair, bool isToken0, SwapParams calldata params)
         external
     {
-        // Write your code here
-        // Don’t change any other code
         bytes memory data = abi.encode(msg.sender, pair, params);
 
         IUniswapV2Pair(pair).swap({

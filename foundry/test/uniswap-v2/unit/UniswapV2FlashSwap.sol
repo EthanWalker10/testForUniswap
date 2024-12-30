@@ -24,8 +24,6 @@ contract UniswapV2FlashSwap {
         if (token != token0 && token != token1) {
             revert InvalidToken();
         }
-        // Write your code here
-        // Don’t change any other code
 
         // 1. Determine amount0Out and amount1Out
         (uint256 amount0Out, uint256 amount1Out) =
@@ -50,9 +48,6 @@ contract UniswapV2FlashSwap {
         uint256 amount1,
         bytes calldata data
     ) external {
-        // Write your code here
-        // Don’t change any other code
-
         // 1. Require msg.sender is pair contract
         // 2. Require sender is this contract
         // Alice -> FlashSwap ---- to = FlashSwap ----> UniswapV2Pair

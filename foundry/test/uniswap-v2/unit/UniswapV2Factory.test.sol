@@ -24,9 +24,6 @@ contract UniswapV2FactoryTest is Test {
     function test_createPair() public {
         ERC20 token = new ERC20("test", "TEST", 18);
 
-        // Exercise - deploy token + WETH pair contract
-        // Write your code here
-        // Don’t change any other code
         address pair = factory.createPair(address(token), WETH);
 
         address token0 = IUniswapV2Pair(pair).token0();
